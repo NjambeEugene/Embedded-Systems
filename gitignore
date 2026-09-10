@@ -1,0 +1,28 @@
+# Keil uVision build artifacts
+Objects/
+Listings/
+*.uvguix
+*.uvguix.*
+*.uvoptx
+*.bak
+*.dep
+*.crf
+*.d
+*.o
+*.axf
+*.hex
+*.lnp
+*.map
+*.htm
+*.sct
+*.iex
+JLinkLog.txt
+EventRecorderStub.scvd
+
+# Backup files
+*~
+*.orig
+
+# OS files
+Thumbs.db
+.DS_Store
