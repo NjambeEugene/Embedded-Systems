@@ -30,11 +30,12 @@ than relying on vendor abstraction libraries that hide those details.
 ## Status
 
 Work in progress — currently implemented:
+
 - [x] Register macros for USART1 (SR, DR, CR1)
 - [x] `uart_send_byte()` / `uart_receive_byte()`
 - [x] Packet struct definition
-- [ ] Checksum calculation function
-- [ ] Packet builder
-- [ ] Receiver state machine
-- [ ] UART peripheral configuration (clocks, GPIO, baud rate)
-- [ ] Full simulated send/receive test between two device instances
+- [x] Checksum calculation function
+- [x] Packet builder
+- [x] Receiver state machine
+- [x]UART peripheral configuration (clocks, GPIO, baud rate)
+- [x] Full simulated send/receive test between two device instances
