@@ -5,6 +5,10 @@
 #define USART1_SR     (*(volatile unsigned int *)(USART1_BASE + 0x00))
 #define USART1_DR     (*(volatile unsigned int *)(USART1_BASE + 0x04))
 #define USART1_CR1    (*(volatile unsigned int *)(USART1_BASE + 0x0C))
+#define RCC_APB2ENR   (*(volatile unsigned int *)(0x40021018))
+#define GPIOA_CRH     (*(volatile unsigned int *)(0x40010804))
+#define USART1_BRR    (*(volatile unsigned int *)(USART1_BASE + 0x08))
+	
 
 // ---- Packet format ----
 #define MAX_PAYLOAD_SIZE 32
@@ -98,10 +102,20 @@ void receive_byte(uint8_t b) {
             break;
 				}
 			}
+
+void uart_init(void) {
+    RCC_APB2ENR |= (0x04 | 0x4000);
+    GPIOA_CRH &= ~(0xFF << 4);
+    GPIOA_CRH |= (0x4B << 4);
+    USART1_BRR = 0x0341;
+    USART1_CR1 |= (0x2000 | 0x08 | 0x04);
+}
  int main(void){
    uint8_t testPayload[3] = {0x12, 0x34, 0x56};
     Packet testPkt;
-
+    
+	 uart_init();
+	 uart_send_byte('A');
     build_packet(&testPkt, testPayload, 3);
      
 	 receive_byte(0xAA);
