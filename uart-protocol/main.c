@@ -1,6 +1,6 @@
 #include <stdint.h>
 
-// ---- Register definitions ----
+// Register definitions 
 #define USART1_BASE   0x40013800
 #define USART1_SR     (*(volatile unsigned int *)(USART1_BASE + 0x00))
 #define USART1_DR     (*(volatile unsigned int *)(USART1_BASE + 0x04))
@@ -10,7 +10,7 @@
 #define USART1_BRR    (*(volatile unsigned int *)(USART1_BASE + 0x08))
 	
 
-// ---- Packet format ----
+//  Packet format 
 #define MAX_PAYLOAD_SIZE 32
 #define START_BYTE 0xAA
 
@@ -22,7 +22,7 @@ typedef struct {
     uint8_t checksum;
 } Packet;
 
-// ---- UART byte-level functions ----
+//  UART byte-level functions 
 void uart_send_byte(uint8_t byte) {
     while ((USART1_SR & 0x80) == 0) {}
     USART1_DR = byte;
@@ -86,11 +86,10 @@ void receive_byte(uint8_t b) {
 						state = READ_CHECKSUM;
 					}
 					break;
-        // more cases coming next
+       
 				 
         case READ_CHECKSUM:
 					
-          
 				  incoming.checksum =b;
 				  if(b ==calculate_checksum(incoming.payload,incoming.length)){
       				 // packet valid - checksum mmatched
@@ -125,7 +124,7 @@ receive_byte(0x34);
 receive_byte(0x56);
 receive_byte(0x70);
     while (1) {
-        // we'll add more here
+       
     }
 }
 			
