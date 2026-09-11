@@ -37,5 +37,5 @@ Work in progress — currently implemented:
 - [x] Checksum calculation function
 - [x] Packet builder
 - [x] Receiver state machine
-- [x]UART peripheral configuration (clocks, GPIO, baud rate)
+- [x] UART peripheral configuration (clocks, GPIO, baud rate)
 - [x] Full simulated send/receive test between two device instances
