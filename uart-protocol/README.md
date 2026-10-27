@@ -1,7 +1,6 @@
 # UART Communication Protocol (STM32F103C8)
 
-A register-level UART communication protocol built in Embedded C, developed
-from first principles — no HAL, no vendor abstraction libraries.
+A register-level UART communication protocol built in Embedded C.
 
 ## What it does
 
@@ -19,13 +18,13 @@ from first principles — no HAL, no vendor abstraction libraries.
 ## Why register-level, not HAL
 
 The goal of this project is to understand what's actually happening at the
-hardware level — clock enables, status flags, memory-mapped registers — rather
+hardware level that is clock enables, status flags, memory-mapped registers rather
 than relying on vendor abstraction libraries that hide those details.
 
 ## Toolchain
 
 - **Target:** STM32F103C8 ("Blue Pill", ARM Cortex-M3)
-- **IDE / Simulator:** Keil MDK-ARM (uVision), simulated (no physical hardware)
+- **IDE / Simulator:** Keil MDK-ARM (uVision)
 
 ## Status
 
